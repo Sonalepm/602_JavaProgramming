@@ -1,0 +1,33 @@
+package package_painter;
+
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Stroke;
+
+public class MyRect extends MyBoundedShape
+{
+   // call default superclass constructor
+   public MyRect()
+   {
+      super();
+   } // end MyRect no-argument constructor
+
+   // call superclass constructor passing parameters
+   public MyRect(int x1, int y1, int x2, int y2,Paint color, boolean isFilled,Stroke isStroked)
+   {
+      super(x1, y1, x2, y2, color,isFilled,isStroked);
+   } // end MyRect constructor
+
+   // draw rectangle
+   public void draw(Graphics2D G)
+   {
+      G.setPaint(getPaint());
+      G.setStroke(getStroke());
+      if (isFilled())
+         G.fillRect(getUpperLeftX(), getUpperLeftY(),
+            getWidth(), getHeight());
+      else
+         G.drawRect(getUpperLeftX(), getUpperLeftY(),
+            getWidth(), getHeight());
+   } // end method draw
+} // end class MyRect
